@@ -14,16 +14,16 @@ fn main() {
 
     let hello_world1 = delegate_loader
         .get_function::<fn()>(
-            pdcstr!("dotnet_project.Program, dotnet_project"),
+            pdcstr!("TestProject.Program, dotnet_project"),
             pdcstr!("HelloWorld1"),
-            pdcstr!("dotnet_project.Program+HelloWorld1Delegate, dotnet_project"),
+            pdcstr!("TestProject.Program+HelloWorld1Delegate, dotnet_project"),
         )
         .unwrap();
     hello_world1();
 
     let hello_world2 = delegate_loader
         .get_function_with_unmanaged_callers_only::<fn()>(
-            pdcstr!("dotnet_project.Program, dotnet_project"),
+            pdcstr!("TestProject.Program, dotnet_project"),
             pdcstr!("HelloWorld2"),
         )
         .unwrap();
@@ -31,7 +31,7 @@ fn main() {
 
     let hello_world3 = delegate_loader
         .get_function_with_default_signature(
-            pdcstr!("dotnet_project.Program, dotnet_project"),
+            pdcstr!("TestProject.Program, dotnet_project"),
             pdcstr!("HelloWorld3"),
         )
         .unwrap();

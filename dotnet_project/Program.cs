@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace dotnet_project {
+namespace TestProject {
     public static class Program {
         public delegate void HelloWorld1Delegate();
         public static void HelloWorld1() {
