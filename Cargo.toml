@@ -14,5 +14,5 @@ opt-level = 3
 
 [dependencies]
 bevy = "0.16.1"
-netcorehost = {git = "https://github.com/OpenByteDev/netcorehost.git", rev = "66357befb83ab275bf0cd04f60b26cdcc9cdbbd7"}
+netcorehost = {git = "https://github.com/OpenByteDev/netcorehost.git", rev = "66357befb83ab275bf0cd04f60b26cdcc9cdbbd7", features = ["net9_0"]}
 
