@@ -2,20 +2,31 @@
 using System.Runtime.InteropServices;
 
 namespace TestProject {
-    public static class Program {
+    public static class Program
+    {
         public delegate void HelloWorld1Delegate();
-        public static void HelloWorld1() {
+        public static void HelloWorld1()
+        {
             Console.WriteLine("Hello 1 from C#!");
         }
 
         [UnmanagedCallersOnly]
-        public static void HelloWorld2() {
+        public static void HelloWorld2()
+        {
             Console.WriteLine("Hello 2 from C#!");
         }
-        
-        public static int HelloWorld3(IntPtr arg, int argLength) {
+
+        public static int HelloWorld3(IntPtr arg, int argLength)
+        {
             Console.WriteLine("Hello 3 from C#!");
             return 0;
+        }
+
+        [UnmanagedCallersOnly]
+        public static unsafe void RunApp(IntPtr appContext, int textLength)
+        {
+            /* don't do anything yet */
+            Console.WriteLine("RunApp called from C#!");
         }
     }
 }

@@ -56,6 +56,13 @@ impl Plugin for SharpPlugin {
                 "dotnet_project\\bin\\Debug\\net9.0\\dotnet_project.dll"
             ))
             .unwrap();
+        let run_app = delegate_loader
+        .get_function_with_unmanaged_callers_only::<fn(app_context: *const App)>(
+            pdcstr!("TestProject.Program, dotnet_project"),
+            pdcstr!("RunApp"),
+        )
+        .unwrap();
+        run_app(app as *const App);
         app.insert_resource(DelegateLoader(delegate_loader));
         app.insert_resource(SharpTimer(Timer::from_seconds(2.0, TimerMode::Repeating)));
         app.add_systems(Update, (hello_from_dotnet,));
